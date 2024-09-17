@@ -9,23 +9,21 @@
 /* Begin PBXBuildFile section */
 		EE5F7F002C8F0EAC00C86EF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F7EFF2C8F0EAC00C86EF8 /* AppDelegate.swift */; };
 		EE5F7F022C8F0EAC00C86EF8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F7F012C8F0EAC00C86EF8 /* SceneDelegate.swift */; };
-		EE5F7F042C8F0EAC00C86EF8 /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F7F032C8F0EAC00C86EF8 /* CounterViewController.swift */; };
 		EE5F7F092C8F0EAD00C86EF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE5F7F082C8F0EAD00C86EF8 /* Assets.xcassets */; };
 		EE5F7F0C2C8F0EAD00C86EF8 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EE5F7F0B2C8F0EAD00C86EF8 /* Base */; };
 		EEA42AE02C9993C10011529D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA42ADF2C9993C10011529D /* Model.swift */; };
-		EEA42AE22C9993D50011529D /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA42AE12C9993D50011529D /* View.swift */; };
+		EEA42AEC2C99C6F90011529D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA42AEB2C99C6F90011529D /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EE5F7EFC2C8F0EAC00C86EF8 /* NorangMemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NorangMemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5F7EFF2C8F0EAC00C86EF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE5F7F012C8F0EAC00C86EF8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EE5F7F032C8F0EAC00C86EF8 /* CounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
 		EE5F7F082C8F0EAD00C86EF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE5F7F0B2C8F0EAD00C86EF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE5F7F0D2C8F0EAD00C86EF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEA42ADF2C9993C10011529D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		EEA42AE12C9993D50011529D /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		EEA42AEB2C99C6F90011529D /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +58,8 @@
 			children = (
 				EE5F7EFF2C8F0EAC00C86EF8 /* AppDelegate.swift */,
 				EE5F7F012C8F0EAC00C86EF8 /* SceneDelegate.swift */,
-				EE5F7F032C8F0EAC00C86EF8 /* CounterViewController.swift */,
+				EEA42AEB2C99C6F90011529D /* TableViewController.swift */,
 				EEA42ADF2C9993C10011529D /* Model.swift */,
-				EEA42AE12C9993D50011529D /* View.swift */,
 				EE5F7F082C8F0EAD00C86EF8 /* Assets.xcassets */,
 				EE5F7F0A2C8F0EAD00C86EF8 /* LaunchScreen.storyboard */,
 				EE5F7F0D2C8F0EAD00C86EF8 /* Info.plist */,
@@ -140,9 +137,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE5F7F042C8F0EAC00C86EF8 /* CounterViewController.swift in Sources */,
+				EEA42AEC2C99C6F90011529D /* TableViewController.swift in Sources */,
 				EE5F7F002C8F0EAC00C86EF8 /* AppDelegate.swift in Sources */,
-				EEA42AE22C9993D50011529D /* View.swift in Sources */,
 				EE5F7F022C8F0EAC00C86EF8 /* SceneDelegate.swift in Sources */,
 				EEA42AE02C9993C10011529D /* Model.swift in Sources */,
 			);

@@ -7,10 +7,7 @@
 
 import Foundation
 
-class Counter {
-    var count: Int = 0
-    
-    func increment() {
-        count+=1
-    }
+class Memo {
+    let title: String = ""
+    let content: String = ""
 }
