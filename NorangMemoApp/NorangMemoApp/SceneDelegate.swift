@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //근데, 시작점이었던 main 스토리보드를 지웠기 때문에 윈도우의 구성상태를 여기서 명시함, 그래야 연결이 될 수 있지.
         //Window 와 Scene 을 잇기 위한 로직을 여기에 정의해주자. 여기서 시작하세용~!
         window = UIWindow(windowScene: windowScene)
-        let viewController = ViewController()
+        let viewController = CounterViewController()
         window?.rootViewController = viewController //윈도우의 컨트롤러는 얘로 임명한다
         window?.makeKeyAndVisible() //윈도우를 보이는 상태로 만들어줭
     }
