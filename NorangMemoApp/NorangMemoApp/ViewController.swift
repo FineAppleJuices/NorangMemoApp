@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
         
         let label = UILabel()
-        label.text = "Hello, Code-based UI!"
+        label.text = "Hello, Norang Code-based UI!"
         label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
         
