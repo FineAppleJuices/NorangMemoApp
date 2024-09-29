@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,8 +11,6 @@
 		EE5F7F022C8F0EAC00C86EF8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F7F012C8F0EAC00C86EF8 /* SceneDelegate.swift */; };
 		EE5F7F092C8F0EAD00C86EF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE5F7F082C8F0EAD00C86EF8 /* Assets.xcassets */; };
 		EE5F7F0C2C8F0EAD00C86EF8 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EE5F7F0B2C8F0EAD00C86EF8 /* Base */; };
-		EEA42AE02C9993C10011529D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA42ADF2C9993C10011529D /* Model.swift */; };
-		EEA42AF02C99D1040011529D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA42AEF2C99D1040011529D /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,9 +20,13 @@
 		EE5F7F082C8F0EAD00C86EF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE5F7F0B2C8F0EAD00C86EF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE5F7F0D2C8F0EAD00C86EF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EEA42ADF2C9993C10011529D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		EEA42AEF2C99D1040011529D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		EE5743B12CA98786001E8DDB /* Controller */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Controller; sourceTree = "<group>"; };
+		EE5743B22CA9878F001E8DDB /* View */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = View; sourceTree = "<group>"; };
+		EE5743B42CA987A2001E8DDB /* Model */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Model; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EE5F7EF92C8F0EAC00C86EF8 /* Frameworks */ = {
@@ -58,8 +60,9 @@
 			children = (
 				EE5F7EFF2C8F0EAC00C86EF8 /* AppDelegate.swift */,
 				EE5F7F012C8F0EAC00C86EF8 /* SceneDelegate.swift */,
-				EEA42AEF2C99D1040011529D /* ViewController.swift */,
-				EEA42ADF2C9993C10011529D /* Model.swift */,
+				EE5743B12CA98786001E8DDB /* Controller */,
+				EE5743B22CA9878F001E8DDB /* View */,
+				EE5743B42CA987A2001E8DDB /* Model */,
 				EE5F7F082C8F0EAD00C86EF8 /* Assets.xcassets */,
 				EE5F7F0A2C8F0EAD00C86EF8 /* LaunchScreen.storyboard */,
 				EE5F7F0D2C8F0EAD00C86EF8 /* Info.plist */,
@@ -81,6 +84,11 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				EE5743B12CA98786001E8DDB /* Controller */,
+				EE5743B22CA9878F001E8DDB /* View */,
+				EE5743B42CA987A2001E8DDB /* Model */,
 			);
 			name = NorangMemoApp;
 			productName = NorangMemoApp;
@@ -137,10 +145,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEA42AF02C99D1040011529D /* ViewController.swift in Sources */,
 				EE5F7F002C8F0EAC00C86EF8 /* AppDelegate.swift in Sources */,
 				EE5F7F022C8F0EAC00C86EF8 /* SceneDelegate.swift in Sources */,
-				EEA42AE02C9993C10011529D /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
