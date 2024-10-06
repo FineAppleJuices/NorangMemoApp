@@ -28,9 +28,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         let memoListViewController = MemoListViewController()
+
+        //탭바
+        let mainTabBarController = MainTabBarController()
         
         // 네비게이션 컨트롤러로 감싸기
-        let navigationController = UINavigationController(rootViewController: memoListViewController)
+        let navigationController = UINavigationController(rootViewController: mainTabBarController)
         window.rootViewController = navigationController
         self.window = window
         window.makeKeyAndVisible()
