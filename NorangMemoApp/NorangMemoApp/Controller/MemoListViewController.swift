@@ -94,37 +94,83 @@ class MemoListViewController: UIViewController, UITableViewDataSource, UITableVi
         navigationController?.pushViewController(detailVC, animated: true)
     }
     
-    // 스와이프할 때 나타나는 삭제 버튼의 텍스트를 '삭제'로 변경
-    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        return "삭제"
-    }
-    
-    // 셀 스와이프해서 삭제
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // 삭제 확인 경고창 표시 (preferredStyle 을 통해 하단에서 시트 부르기)
-            let alertController = UIAlertController(title: "삭제 확인", message: "이 메모를 삭제하시겠습니까? 정말로?", preferredStyle: .actionSheet)
+    // 스와이프할 때 나타나는 삭제와 편집 버튼 추가
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // 삭제 액션
+        let deleteAction = UIContextualAction(style: .destructive, title: "삭제") { _, _, completionHandler in
+            let actionSheet = UIAlertController(title: "삭제 확인", message: "정말 삭제하시겠습니까?", preferredStyle: .actionSheet)
             
             let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { _ in
-                // 데이터를 삭제하고 테이블 뷰를 업데이트
                 self.data.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             }
             
             let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
             
-            alertController.addAction(deleteAction)
-            alertController.addAction(cancelAction)
+            actionSheet.addAction(deleteAction)
+            actionSheet.addAction(cancelAction)
             
-            present(alertController, animated: true, completion: nil)
+            self.present(actionSheet, animated: true, completion: nil)
+            
+            completionHandler(true)
         }
+        
+        // 편집 액션
+        let editAction = UIContextualAction(style: .normal, title: "편집") { _, _, completionHandler in
+            let selectedMemo = self.data[indexPath.row]
+            let editMemoVC = AddMemoViewController()
+            editMemoVC.memoToEdit = selectedMemo  // 기존 데이터를 전달하여 편집
+            editMemoVC.delegate = self  // 메모 저장 시 처리하기 위한 delegate 설정
+            let navController = UINavigationController(rootViewController: editMemoVC)
+            navController.modalPresentationStyle = .fullScreen
+            self.present(navController, animated: true, completion: nil)
+            
+            completionHandler(true)
+        }
+        
+        editAction.backgroundColor = .blue
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
+    
+    //    // 스와이프할 때 나타나는 삭제 버튼의 텍스트를 '삭제'로 변경
+    //    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+    //        return "삭제"
+    //    }
+    //
+    //    // 셀 스와이프해서 삭제
+    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    //        if editingStyle == .delete {
+    //            // 삭제 확인 경고창 표시 (preferredStyle 을 통해 하단에서 시트 부르기)
+    //            let alertController = UIAlertController(title: "삭제 확인", message: "이 메모를 삭제하시겠습니까? 정말로?", preferredStyle: .actionSheet)
+    //
+    //            let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { _ in
+    //                // 데이터를 삭제하고 테이블 뷰를 업데이트
+    //                self.data.remove(at: indexPath.row)
+    //                tableView.deleteRows(at: [indexPath], with: .automatic)
+    //            }
+    //
+    //            let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+    //
+    //            alertController.addAction(deleteAction)
+    //            alertController.addAction(cancelAction)
+    //
+    //            present(alertController, animated: true, completion: nil)
+    //        }
+    //    }
 }
 
 // AddMemoViewController에서 데이터를 전달받기 위한 Delegate 프로토콜 정의
 extension MemoListViewController: AddMemoViewControllerDelegate {
     func didSaveMemo(_ memo: Memo) {
-        data.append(memo)  // 새로운 메모를 데이터에 추가
-        memoListView.tableView.reloadData()  // 테이블 뷰 갱신
-    }
-}
+        // 새 메모 추가 또는 기존 메모 수정
+        if let index = data.firstIndex(where: { $0.title == memo.title }) {
+            // 기존 메모 업데이트
+            data[index] = memo
+        } else {
+            // 새 메모 추가
+            data.append(memo)
+        }
+        
+        memoListView.tableView.reloadData()
+    }}

@@ -13,7 +13,8 @@ protocol AddMemoViewControllerDelegate: AnyObject {
 
 class AddMemoViewController: UIViewController {
     weak var delegate: AddMemoViewControllerDelegate?
-    
+    var memoToEdit: Memo?  // 편집할 메모를 전달받기 위한 속성
+
     let titleTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "제목"
@@ -37,7 +38,15 @@ class AddMemoViewController: UIViewController {
         view.backgroundColor = .white
         setupLayout()
         setupNavigationBar() // 취소 및 저장 버튼 설정
-        navigationItem.title = "새 메모"
+        
+        // 편집 모드라면 기존 메모 데이터를 UI에 반영
+        if let memoToEdit = memoToEdit {
+            titleTextField.text = memoToEdit.title
+            contentTextView.text = memoToEdit.content
+            navigationItem.title = "메모 편집"
+        } else {
+            navigationItem.title = "새 메모 추가"
+        }
     }
     
     func setupLayout() {
