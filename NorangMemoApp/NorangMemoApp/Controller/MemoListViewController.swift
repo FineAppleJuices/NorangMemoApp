@@ -23,7 +23,6 @@ class MemoListViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        
         view.addSubview(memoListView)
         
         //테이블 뷰 설정
@@ -59,7 +58,7 @@ class MemoListViewController: UIViewController, UITableViewDataSource, UITableVi
         navController.modalPresentationStyle = .fullScreen
         present(navController, animated: true, completion: nil)
     }
-
+    
     //Data source methods
     //섹션 당 행의 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,23 +76,49 @@ class MemoListViewController: UIViewController, UITableViewDataSource, UITableVi
         
         return cell
     }
-//    
-//    //셀의 높이 설정
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableView.automaticDimension
-//    }
-//    
-//    //셀이 선택되었을 때 알려주기
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("Selected: \(data[indexPath.row])")
-//        let selectedMemo = data[indexPath.row]  // 선택된 메모
-//        
-//        let detailVC = MemoDetailViewController()
-//        detailVC.memo = selectedMemo  // 선택된 메모를 상세 뷰 컨트롤러에 전달
-//        
-//        // 상세 뷰로 화면 전환
-//        navigationController?.pushViewController(detailVC, animated: true)
-//    }
+    
+    //셀의 높이 설정
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    //셀이 선택되었을 때 알려주기
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Selected: \(data[indexPath.row])")
+        let selectedMemo = data[indexPath.row]  // 선택된 메모
+        
+        let detailVC = MemoDetailViewController()
+        detailVC.memo = selectedMemo  // 선택된 메모를 상세 뷰 컨트롤러에 전달
+        
+        // 상세 뷰로 화면 전환
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    // 스와이프할 때 나타나는 삭제 버튼의 텍스트를 '삭제'로 변경
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "삭제"
+    }
+    
+    // 셀 스와이프해서 삭제
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // 삭제 확인 경고창 표시 (preferredStyle 을 통해 하단에서 시트 부르기)
+            let alertController = UIAlertController(title: "삭제 확인", message: "이 메모를 삭제하시겠습니까? 정말로?", preferredStyle: .actionSheet)
+            
+            let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { _ in
+                // 데이터를 삭제하고 테이블 뷰를 업데이트
+                self.data.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+            
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+            
+            alertController.addAction(deleteAction)
+            alertController.addAction(cancelAction)
+            
+            present(alertController, animated: true, completion: nil)
+        }
+    }
 }
 
 // AddMemoViewController에서 데이터를 전달받기 위한 Delegate 프로토콜 정의
