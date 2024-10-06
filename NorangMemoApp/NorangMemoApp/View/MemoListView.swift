@@ -46,18 +46,18 @@ class MemoListView: UIView {
     private func setupLayout() {
         // Title label layout
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            titleLabel.heightAnchor.constraint(equalToConstant: 40)
+            titleLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
         
         // Table view layout
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
+            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)
         ])
     }
 }
