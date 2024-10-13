@@ -6,25 +6,15 @@
 //
 
 import UIKit
+import CoreData
 
 class MemoListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    // 카테고리별 메모 데이터를 저장
-    var categorizedData: [String: [Memo]] = [
-        "개인": [
-            Memo(title: "쇼핑 목록", content: "우유, 빵, 계란", category: .personal)
-        ],
-        "아이디어": [
-            Memo(title: "새로운 앱 아이디어", content: "AR을 활용한 학습 앱", category: .ideas)
-        ],
-        "업무": [
-            Memo(title: "회의 준비", content: "프리젠테이션 자료 준비", category: .work),
-            Memo(title: "프로젝트 마감일", content: "다음 주 금요일까지", category: .work)
-        ],
-        "할 일": [
-            Memo(title: "운동 계획", content: "주 3회 러닝", category: .todos)
-        ]
-    ]
+    // Core Data Manager 인스턴스
+    let coreDataManager = CoreDataManager.shared
+        
+    // 카테고리별 메모 데이터를 저장 (CoreData에서 가져온 데이터를 사용)
+    var categorizedData: [String: [MemoModel]] = [:]
     
     // 카테고리 순서를 보존하기 위해 섹션 리스트 사용
     var categories: [String] {
@@ -45,6 +35,8 @@ class MemoListViewController: UIViewController, UITableViewDataSource, UITableVi
         
         setupLayout()
         setupNavigationBar() // 네비게이션 바에 + 버튼 추가
+        loadMemos() // Core Data에서 메모 불러오기
+
     }
     
     //레이아웃 설정
@@ -133,9 +125,12 @@ class MemoListViewController: UIViewController, UITableViewDataSource, UITableVi
             let actionSheet = UIAlertController(title: "삭제 확인", message: "정말 삭제하시겠습니까?", preferredStyle: .actionSheet)
             
             let deleteAction = UIAlertAction(title: "삭제", style: .destructive) { _ in
-                // 카테고리에서 메모 삭제
-                memosInCategory.remove(at: indexPath.row)
-                self.categorizedData[category] = memosInCategory
+                // Core Data에서 메모 삭제
+                let memoToDelete = memosInCategory[indexPath.row]
+                self.coreDataManager.deleteMemo(memoToDelete)
+                
+                // UI에서 카테고리 메모 삭제
+                self.categorizedData[category]?.remove(at: indexPath.row)
                 
                 // 테이블 뷰에서 해당 행 삭제
                 tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -171,36 +166,34 @@ class MemoListViewController: UIViewController, UITableViewDataSource, UITableVi
             
             completionHandler(true)
         }
-        
-        editAction.backgroundColor = .blue
-        
+                
         return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
     
+    // Core Data에서 메모 불러오기
+        func loadMemos() {
+            let memos = coreDataManager.fetchAllMemos()
+            
+            // 카테고리별로 메모 데이터를 분류
+            categorizedData.removeAll()
+            for memo in memos {
+                let category = memo.category.rawValue
+                if var memosInCategory = categorizedData[category] {
+                    memosInCategory.append(memo)
+                    categorizedData[category] = memosInCategory
+                } else {
+                    categorizedData[category] = [memo]
+                }
+            }
+            
+            memoListView.tableView.reloadData() // 데이터 갱신
+        }
 }
 
 // AddMemoViewController에서 데이터를 전달받기 위한 Delegate 프로토콜 정의
 extension MemoListViewController: AddMemoViewControllerDelegate {
-    func didSaveMemo(_ memo: Memo) {
-        let category = memo.category  // 메모의 카테고리
-        
-        // 해당 카테고리의 메모 배열을 가져옴
-        if var memosInCategory = categorizedData[category.rawValue] {
-            // 기존 메모 수정
-            if let index = memosInCategory.firstIndex(where: { $0.title == memo.title }) {
-                // 기존 메모 업데이트
-                memosInCategory[index] = memo
-                categorizedData[category.rawValue] = memosInCategory
-            } else {
-                // 새 메모 추가
-                memosInCategory.append(memo)
-                categorizedData[category.rawValue] = memosInCategory
-            }
-        } else {
-            // 카테고리에 해당하는 배열이 없으면 새로 추가
-            categorizedData[category.rawValue] = [memo]
-        }
-        
-        memoListView.tableView.reloadData()  // 테이블 뷰 갱신
+    func didSaveMemo(_ memo: MemoModel) {
+        coreDataManager.createMemo(memo)
+        loadMemos() // 저장 후 다시 로드하여 갱신
     }
 }

@@ -8,12 +8,12 @@
 import UIKit
 
 protocol AddMemoViewControllerDelegate: AnyObject {
-    func didSaveMemo(_ memo: Memo)
+    func didSaveMemo(_ memo: MemoModel)
 }
 
 class AddMemoViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     weak var delegate: AddMemoViewControllerDelegate?
-    var memoToEdit: Memo?  // 편집할 메모를 전달받기 위한 속성
+    var memoToEdit: MemoModel?  // 편집할 메모를 전달받기 위한 속성
 
     // 카테고리 선택을 위한 Picker View
     let categoryPicker = UIPickerView()
@@ -123,7 +123,7 @@ class AddMemoViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
           let category = selectedCategory ?? categories[0]
           
           // 메모를 저장
-        let memo = Memo(title: title, content: content, category: category)
+        let memo = MemoModel(id: UUID().uuidString, title: title, content: content, category: category)
           
           // delegate를 통해 메모 전달
           delegate?.didSaveMemo(memo)

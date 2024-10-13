@@ -7,7 +7,7 @@
 import UIKit
 
 class MemoDetailViewController: UIViewController {
-    var memo: Memo? // MemoListView에서 전달받을 메모
+    var memo: MemoModel? // MemoListView에서 전달받을 메모
     
     //디테일뷰 제목
     let titleLabel: UILabel = {

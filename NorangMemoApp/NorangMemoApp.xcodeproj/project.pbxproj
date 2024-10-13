@@ -11,6 +11,10 @@
 		EE5F7F022C8F0EAC00C86EF8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F7F012C8F0EAC00C86EF8 /* SceneDelegate.swift */; };
 		EE5F7F092C8F0EAD00C86EF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE5F7F082C8F0EAD00C86EF8 /* Assets.xcassets */; };
 		EE5F7F0C2C8F0EAD00C86EF8 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EE5F7F0B2C8F0EAD00C86EF8 /* Base */; };
+		EEECC4F22CBC0F8600238841 /* MemoTutorial.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEECC4F02CBC0F8600238841 /* MemoTutorial.xcdatamodeld */; };
+		EEECC4F52CBC102E00238841 /* MemoEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEECC4F42CBC102E00238841 /* MemoEntity+CoreDataProperties.swift */; };
+		EEECC4F62CBC102E00238841 /* MemoEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEECC4F32CBC102E00238841 /* MemoEntity+CoreDataClass.swift */; };
+		EEECC4F82CBC11C400238841 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEECC4F72CBC11B200238841 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +24,10 @@
 		EE5F7F082C8F0EAD00C86EF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE5F7F0B2C8F0EAD00C86EF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE5F7F0D2C8F0EAD00C86EF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEECC4F12CBC0F8600238841 /* MemoTutorial.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MemoTutorial.xcdatamodel; sourceTree = "<group>"; };
+		EEECC4F32CBC102E00238841 /* MemoEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemoEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EEECC4F42CBC102E00238841 /* MemoEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemoEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EEECC4F72CBC11B200238841 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -42,6 +50,9 @@
 		EE5F7EF32C8F0EAC00C86EF8 = {
 			isa = PBXGroup;
 			children = (
+				EEECC4F32CBC102E00238841 /* MemoEntity+CoreDataClass.swift */,
+				EEECC4F42CBC102E00238841 /* MemoEntity+CoreDataProperties.swift */,
+				EEECC4F02CBC0F8600238841 /* MemoTutorial.xcdatamodeld */,
 				EE5F7EFE2C8F0EAC00C86EF8 /* NorangMemoApp */,
 				EE5F7EFD2C8F0EAC00C86EF8 /* Products */,
 			);
@@ -58,6 +69,7 @@
 		EE5F7EFE2C8F0EAC00C86EF8 /* NorangMemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				EEECC4F72CBC11B200238841 /* CoreDataManager.swift */,
 				EE5F7EFF2C8F0EAC00C86EF8 /* AppDelegate.swift */,
 				EE5F7F012C8F0EAC00C86EF8 /* SceneDelegate.swift */,
 				EE5743B12CA98786001E8DDB /* Controller */,
@@ -145,8 +157,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEECC4F52CBC102E00238841 /* MemoEntity+CoreDataProperties.swift in Sources */,
+				EEECC4F62CBC102E00238841 /* MemoEntity+CoreDataClass.swift in Sources */,
 				EE5F7F002C8F0EAC00C86EF8 /* AppDelegate.swift in Sources */,
+				EEECC4F22CBC0F8600238841 /* MemoTutorial.xcdatamodeld in Sources */,
 				EE5F7F022C8F0EAC00C86EF8 /* SceneDelegate.swift in Sources */,
+				EEECC4F82CBC11C400238841 /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +375,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EEECC4F02CBC0F8600238841 /* MemoTutorial.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EEECC4F12CBC0F8600238841 /* MemoTutorial.xcdatamodel */,
+			);
+			currentVersion = EEECC4F12CBC0F8600238841 /* MemoTutorial.xcdatamodel */;
+			path = MemoTutorial.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EE5F7EF42C8F0EAC00C86EF8 /* Project object */;
 }
