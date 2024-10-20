@@ -11,6 +11,9 @@
 		EE5F7F022C8F0EAC00C86EF8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F7F012C8F0EAC00C86EF8 /* SceneDelegate.swift */; };
 		EE5F7F092C8F0EAD00C86EF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE5F7F082C8F0EAD00C86EF8 /* Assets.xcassets */; };
 		EE5F7F0C2C8F0EAD00C86EF8 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EE5F7F0B2C8F0EAD00C86EF8 /* Base */; };
+		EEB867C02CC4F1640077C56B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEB867BE2CC4F1640077C56B /* Model.xcdatamodeld */; };
+		EEB867C32CC5038A0077C56B /* MemoEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB867C12CC5038A0077C56B /* MemoEntity+CoreDataClass.swift */; };
+		EEB867C42CC5038A0077C56B /* MemoEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB867C22CC5038A0077C56B /* MemoEntity+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		EE5F7F082C8F0EAD00C86EF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE5F7F0B2C8F0EAD00C86EF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE5F7F0D2C8F0EAD00C86EF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEB867BF2CC4F1640077C56B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		EEB867C12CC5038A0077C56B /* MemoEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MemoEntity+CoreDataClass.swift"; path = "NorangMemoApp/MemoEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EEB867C22CC5038A0077C56B /* MemoEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MemoEntity+CoreDataProperties.swift"; path = "NorangMemoApp/MemoEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -42,6 +48,9 @@
 		EE5F7EF32C8F0EAC00C86EF8 = {
 			isa = PBXGroup;
 			children = (
+				EEB867C12CC5038A0077C56B /* MemoEntity+CoreDataClass.swift */,
+				EEB867C22CC5038A0077C56B /* MemoEntity+CoreDataProperties.swift */,
+				EEB867BE2CC4F1640077C56B /* Model.xcdatamodeld */,
 				EE5F7EFE2C8F0EAC00C86EF8 /* NorangMemoApp */,
 				EE5F7EFD2C8F0EAC00C86EF8 /* Products */,
 			);
@@ -145,8 +154,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEB867C32CC5038A0077C56B /* MemoEntity+CoreDataClass.swift in Sources */,
+				EEB867C42CC5038A0077C56B /* MemoEntity+CoreDataProperties.swift in Sources */,
 				EE5F7F002C8F0EAC00C86EF8 /* AppDelegate.swift in Sources */,
 				EE5F7F022C8F0EAC00C86EF8 /* SceneDelegate.swift in Sources */,
+				EEB867C02CC4F1640077C56B /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +371,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EEB867BE2CC4F1640077C56B /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EEB867BF2CC4F1640077C56B /* Model.xcdatamodel */,
+			);
+			currentVersion = EEB867BF2CC4F1640077C56B /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = NorangMemoApp/Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EE5F7EF42C8F0EAC00C86EF8 /* Project object */;
 }
