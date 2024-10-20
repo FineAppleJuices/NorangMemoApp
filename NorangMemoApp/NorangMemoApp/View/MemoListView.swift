@@ -9,15 +9,15 @@ import UIKit
 
 class MemoListView: UIView {
 
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Norang 메모장"
-        label.font = UIFont.boldSystemFont(ofSize: 24)
-        label.textColor = .black
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+//    let titleLabel: UILabel = {
+//        let label = UILabel()
+//        label.text = "Norang 메모장"
+//        label.font = UIFont.boldSystemFont(ofSize: 24)
+//        label.textColor = .black
+//        label.textAlignment = .center
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        return label
+//    }()
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -39,22 +39,22 @@ class MemoListView: UIView {
     
     private func setupView() {
         // Add subviews
-        addSubview(titleLabel)
+        //addSubview(titleLabel)
         addSubview(tableView)
     }
     
     private func setupLayout() {
         // Title label layout
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            titleLabel.heightAnchor.constraint(equalToConstant: 30)
-        ])
+//        NSLayoutConstraint.activate([
+//            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0),
+//            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+//            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+//            titleLabel.heightAnchor.constraint(equalToConstant: 30)
+//        ])
         
         // Table view layout
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)

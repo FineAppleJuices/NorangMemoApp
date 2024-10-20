@@ -35,6 +35,8 @@ class MemoListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "노랑메모"
+        view.backgroundColor = UIColor.systemGray6
         
         view.addSubview(memoListView)
         
